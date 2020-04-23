@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_TRIO_Modbus_tcp"
         mc:Ignorable="d"
-        Title="Modbus_TCP Test" Height="362.4" Width="609.8" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" BorderBrush="Black" FontWeight="Bold"  Topmost="False">
+        Title="Modbus_TCP Test" Height="362.4" Width="609.8" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" BorderBrush="#FF0FCB25" FontWeight="Bold"  Topmost="False" Foreground="#FF6F0505" >
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="1"/>
@@ -19,10 +19,10 @@
             <ColumnDefinition Width="235*"/>
             <ColumnDefinition Width="66*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label" Content="通讯状态：" HorizontalAlignment="Left" Margin="216,10,0,0" VerticalAlignment="Top" Height="31" Width="126" FontSize="16" Grid.ColumnSpan="2"/>
-        <Label x:Name="ConnectStatus" Content="未连接..." HorizontalAlignment="Left" Margin="10.4,10,0,0" VerticalAlignment="Top" Width="77" Height="28" Foreground="#FFE51936" Grid.Column="1" FontSize="14"/>
-        <Button x:Name="b_connect" Content="连接" HorizontalAlignment="Left" Margin="200,46,0,0" VerticalAlignment="Top" Width="75" Height="23" RenderTransformOrigin="0.419,0.609" Click="b_connect_Click"/>
-        <Button x:Name="b_disconnect" Content="断开" HorizontalAlignment="Left" Margin="20.4,46,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Click="b_disconnect_Click">
+        <Label x:Name="label" Content="通讯状态：" HorizontalAlignment="Left" Margin="219,10,0,0" VerticalAlignment="Top" Height="31" Width="126" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label x:Name="ConnectStatus" Content="未连接..." HorizontalAlignment="Left" Margin="13.6,10,0,0" VerticalAlignment="Top" Width="77" Height="28" Foreground="#FFE51936" FontSize="14" Grid.Column="1"/>
+        <Button x:Name="b_connect" Content="连接" HorizontalAlignment="Left" Margin="203,46,0,0" VerticalAlignment="Top" Width="75" Height="23" RenderTransformOrigin="0.419,0.609" Click="b_connect_Click"/>
+        <Button x:Name="b_disconnect" Content="断开" HorizontalAlignment="Left" Margin="23.6,46,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Click="b_disconnect_Click" Grid.Column="1">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,43 +32,33 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="b_read_input" Content="读取输入" HorizontalAlignment="Left" Margin="20,102,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="b_read_input_Click"/>
-        <Label x:Name="label1" Content="状态" HorizontalAlignment="Left" Margin="109,104,0,0" VerticalAlignment="Top" Height="30"/>
-        <Label x:Name="label2" Content="IN(0)" HorizontalAlignment="Left" Margin="39,154,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
-        <Label x:Name="label2_Copy" Content="IN(0)" HorizontalAlignment="Left" Margin="39,154,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
-        <Label x:Name="label2_Copy1" Content="IN(1)" HorizontalAlignment="Left" Margin="39,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
-        <Label x:Name="label2_Copy2" Content="IN(2)" HorizontalAlignment="Left" Margin="39,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
-        <Label x:Name="label2_Copy3" Content="IN(3)" HorizontalAlignment="Left" Margin="39,246,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
-        <Label x:Name="label2_Copy4" Content="IN(4)" HorizontalAlignment="Left" Margin="39,277,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
-        <Label x:Name="label3_Copy0" Content="FALSE" HorizontalAlignment="Left" Margin="100,153,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3"/>
-        <Label x:Name="label3_Copy1" Content="FALSE" HorizontalAlignment="Left" Margin="100,185,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3"/>
-        <Label x:Name="label3_Copy2" Content="FALSE" HorizontalAlignment="Left" Margin="100,216,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" RenderTransformOrigin="0.539,3.524"/>
-        <Label x:Name="label3_Copy3" Content="FALSE" HorizontalAlignment="Left" Margin="100,246,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3"/>
-        <Label x:Name="label3_Copy4" Content="FALSE" HorizontalAlignment="Left" Margin="100,278,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3"/>
-        <Button x:Name="b_read_output" Grid.ColumnSpan="2" Content="读取输出" HorizontalAlignment="Left" Margin="232,102,0,0" VerticalAlignment="Top" Width="80" Height="30"/>
-        <Label x:Name="label1_Copy" Content="状态" HorizontalAlignment="Left" Margin="24.4,104,0,0" VerticalAlignment="Top" Height="30" Grid.Column="1"/>
-        <Label x:Name="label3" Content="op(8)" HorizontalAlignment="Left" Margin="245,154,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3_Copy6" Content="op(10)" HorizontalAlignment="Left" Margin="246,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,0.102"/>
-        <Label x:Name="label3_Copy7" Content="op(11)" HorizontalAlignment="Left" Margin="247,246,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3_Copy8" Content="op(12)" HorizontalAlignment="Left" Margin="247,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,4.653"/>
-        <Label x:Name="label3_Copy5" Content="op(9)" HorizontalAlignment="Left" Margin="247,187,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3_Copy9" Content="FALSE" HorizontalAlignment="Left" Margin="21.4,153,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" Grid.Column="1"/>
-        <Label x:Name="label3_Copy10" Content="FALSE" HorizontalAlignment="Left" Margin="21.4,185,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" Grid.Column="1"/>
-        <Label x:Name="label3_Copy11" Content="FALSE" HorizontalAlignment="Left" Margin="21.4,216,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" RenderTransformOrigin="0.539,3.524" Grid.Column="1"/>
-        <Label x:Name="label3_Copy12" Content="FALSE" HorizontalAlignment="Left" Margin="21.4,246,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" Grid.Column="1"/>
-        <Label x:Name="label3_Copy13" Content="FALSE" HorizontalAlignment="Left" Margin="21.4,278,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" Grid.Column="1"/>
-        <Button x:Name="b_read_vr" Content="读" Grid.Column="1" HorizontalAlignment="Left" Margin="160.4,104,0,0" VerticalAlignment="Top" Width="53" Height="28"/>
-        <Button x:Name="b_write_vr" Content="写" Grid.Column="1" HorizontalAlignment="Left" Margin="227.4,104,0,0" VerticalAlignment="Top" Width="53" Height="28" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxVr0" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="206.4,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
-        <Label x:Name="label4" Content="vr(0)" Grid.Column="1" HorizontalAlignment="Left" Margin="159.4,163,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4_Copy" Content="vr(1)" Grid.Column="1" HorizontalAlignment="Left" Margin="159.4,195,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4_Copy1" Content="vr(2)" Grid.Column="1" HorizontalAlignment="Left" Margin="160.4,223,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4_Copy2" Content="vr(3)" Grid.Column="1" HorizontalAlignment="Left" Margin="159.4,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.651,4.164"/>
-        <Label x:Name="label4_Copy3" Content="vr(4)" Grid.Column="1" HorizontalAlignment="Left" Margin="160.4,279,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxVr1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="206.4,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxVr2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="206.4,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxVr3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="206.4,251,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="textBoxVr4" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="206.4,280,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
+
+        <Button x:Name="b_read_input" Content="读取输入" HorizontalAlignment="Left" Margin="20,129,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="b_read_input_Click"/>
+        <Label x:Name="label1" Content="状态" HorizontalAlignment="Left" Margin="109,131,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label x:Name="label2" Content="IN(0)" HorizontalAlignment="Left" Margin="39,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
+        <Label x:Name="label2_Copy" Content="IN(0)" HorizontalAlignment="Left" Margin="39,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
+        <Label x:Name="label2_Copy1" Content="IN(1)" HorizontalAlignment="Left" Margin="39,211,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
+        <Label x:Name="label2_Copy2" Content="IN(2)" HorizontalAlignment="Left" Margin="39,242,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.188,0.039"/>
+        <Label x:Name="label3_Copy0" Content="FALSE" HorizontalAlignment="Left" Margin="100,180,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3"/>
+        <Label x:Name="label3_Copy1" Content="FALSE" HorizontalAlignment="Left" Margin="100,212,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3"/>
+        <Label x:Name="label3_Copy2" Content="FALSE" HorizontalAlignment="Left" Margin="100,243,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" RenderTransformOrigin="0.539,3.524"/>
+        <Label x:Name="label3" Content="op(8)" HorizontalAlignment="Left" Margin="242,181,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3_Copy6" Content="op(10)" HorizontalAlignment="Left" Margin="243,244,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,0.102"/>
+        <Label x:Name="label3_Copy5" Content="op(9)" HorizontalAlignment="Left" Margin="244,214,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3_Copy9"  Content="FALSE" HorizontalAlignment="Left" Margin="18.6,180,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" Grid.Column="1"/>
+        <Label x:Name="label3_Copy10" Content="FALSE" HorizontalAlignment="Left" Margin="18.6,212,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" Grid.Column="1"/>
+        <Label x:Name="label3_Copy11" Content="FALSE" HorizontalAlignment="Left" Margin="18.6,243,0,0" VerticalAlignment="Top" Background="#FFE51936" FontSize="12" Foreground="#FFF3F7F3" RenderTransformOrigin="0.539,3.524" Grid.Column="1"/>
+        <Button x:Name="ReadVr" Content="读" Grid.Column="1" HorizontalAlignment="Left" Margin="156.6,131,0,0" VerticalAlignment="Top" Width="53" Height="28" Click="ReadVr_Click"/>
+        <Button x:Name="WriteVr" Content="写" Grid.Column="1" HorizontalAlignment="Left" Margin="223.6,131,0,0" VerticalAlignment="Top" Width="53" Height="28" Grid.ColumnSpan="2" Click="WriteVr_Click"/>
+        <TextBox x:Name="textBoxVr0" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="199.6,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2" Text="0"/>
+        <Label x:Name="label4" Content="vr(0)" Grid.Column="1" HorizontalAlignment="Left" Margin="152.6,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4_Copy" Content="vr(1)" Grid.Column="1" HorizontalAlignment="Left" Margin="152.6,208,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4_Copy1" Content="vr(2)" Grid.Column="1" HorizontalAlignment="Left" Margin="153.6,240,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxVr1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="199.6,208,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="textBoxVr2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="199.6,240,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.103,0.391" Grid.ColumnSpan="2"/>
+        <Button x:Name="bReadOp" Content="读" HorizontalAlignment="Left" Margin="240,130,0,0" VerticalAlignment="Top" Width="40" Height="30" Click="bReadOp_Click"/>
+        <Button x:Name="bWriteOp" Content="F" HorizontalAlignment="Left" Margin="32.6,130,0,0" VerticalAlignment="Top" Width="40" Height="30" Grid.Column="1" Click="bWriteOp_Click"/>
+        <Button x:Name="bWriteOpT" Content="T" HorizontalAlignment="Left" Margin="287,130,0,0" VerticalAlignment="Top" Width="40" Height="30" Grid.ColumnSpan="2" Click="bWriteOpT_Click"/>
 
     </Grid>
 </Window>
